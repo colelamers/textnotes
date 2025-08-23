@@ -1,12 +1,13 @@
-# The assumption wtih this is that you are located in the build/ folder like
-# this: 
-# ./App/
-# |--src/
-# |--main.cpp
-# |--CMakeLists.txt
-# |--...etc.
-# |--build/
-
+```
+The assumption wtih this is that you are located in the build/ folder like
+this: 
+./App/
+ |--src/
+ |--main.cpp
+ |--CMakeLists.txt
+ |--...etc.
+ |--build/
+```
 # NOTE! THE FUNCTIONS ARE A SPECIFIC ORDER! YOU CANNOT HAVE SOME BEFORE OR AFTER OTHERS.
 
 # Build basic app with cmake

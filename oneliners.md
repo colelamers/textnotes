@@ -1,4 +1,5 @@
-```# GREP INTO SED FOR TEXT RENAMING
+```bash
+# GREP INTO SED FOR TEXT RENAMING
 
 Suppose you have a list of files:
 echo file1.txt file2.txt file3.txt
