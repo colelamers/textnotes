@@ -1,3 +1,11 @@
+# Args
+* --color; Adds color to grep pull
+* n; shows line numbers
+* i; ignore case
+* r; recursive search
+* o; print only the matching text
+* l; print ONLY the filenames where that text exists (see grep | sed oneliner)
+
 # Find text in file
 grep "hello" file.txt
 # Case-insensitive search
