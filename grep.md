@@ -24,5 +24,5 @@ ps aux | grep firefox
 grep -E '(cat|dog)food' file.txt
 # Matches gogle, google, gooogle, etc.
 grep -E 'go+gle' file.txt
-# Get todo's
-grep -rin "todo" .
+# Get all directory items case insensitive in color
+grep -nir --color "todo" .

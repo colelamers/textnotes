@@ -7,7 +7,7 @@ _sdlkfj_
 __sdlkfj__
 **lsdkjf**
 ~~linethrough~~
-[Link](https://docs.inkdrop.app/start-guide/how-to-write-markdown-notes)
+[Link](https:#docs.inkdrop.app/start-guide/how-to-write-markdown-notes)
 `inline code`
 ```python
 def hello_world():

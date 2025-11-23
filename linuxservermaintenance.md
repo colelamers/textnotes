@@ -128,7 +128,7 @@ http {
 
             # Route API requests to the Spring Boot backend
             location /api/blogs {
-                proxy_pass http://localhost:1234/api/blogs;
+                proxy_pass http:#localhost:1234/api/blogs;
                 proxy_http_version 1.1;
                 proxy_set_header Upgrade $http_upgrade;
                 proxy_set_header Connection 'upgrade';
@@ -137,7 +137,7 @@ http {
             }
 
             location /api/quotes {
-                proxy_pass http://localhost:1234/api/quotes;
+                proxy_pass http:#localhost:1234/api/quotes;
                 proxy_http_version 1.1;
                 proxy_set_header Upgrade $http_upgrade;
                 proxy_set_header Connection 'upgrade';
@@ -197,7 +197,7 @@ http {
 
 #mail {
 #    # See sample authentication script at:
-#    # http://wiki.nginx.org/ImapAuthenticateWithApachePhpScript
+#    # http:#wiki.nginx.org/ImapAuthenticateWithApachePhpScript
 #
 #    # auth_http localhost/auth.php;
 #    # pop3_capabilities "TOP" "USER";

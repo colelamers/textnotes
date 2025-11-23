@@ -1,5 +1,5 @@
-sudo systemctl restart nginx // restart nginx
-etc/nginx/nginx.conf // location of config file
+sudo systemctl restart nginx # restart nginx
+etc/nginx/nginx.conf # location of config file
 /*
 server {
     listen 80;
@@ -13,7 +13,7 @@ server {
 
     # Route API requests to the Spring Boot backend
     location /api/blogs {
-        proxy_pass http://localhost:1234/api/blogs;  # Replace with your Spring Boot app's address
+        proxy_pass http:#localhost:1234/api/blogs;  # Replace with your Spring Boot app's address
         proxy_http_version 1.1;
         proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection 'upgrade';
@@ -22,7 +22,7 @@ server {
     }
 
     location /api/quotes {
-        proxy_pass http://localhost:1234/api/quotes;  # Replace with your Spring Boot app's address
+        proxy_pass http:#localhost:1234/api/quotes;  # Replace with your Spring Boot app's address
         proxy_http_version 1.1;
         proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection 'upgrade';
@@ -32,8 +32,8 @@ server {
 }
 
 */
-sudo ufw allow 80/tcp // allow traffic on port 80
-sudo ufw allow from 127.0.0.1 to any port 8080 // allows access locally too
+sudo ufw allow 80/tcp # allow traffic on port 80
+sudo ufw allow from 127.0.0.1 to any port 8080 # allows access locally too
 
-// Test nginx config compiles/works
+# Test nginx config compiles/works
 sudo nginx -t

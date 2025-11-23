@@ -8,7 +8,7 @@ git init
 git clone "url"
 git remote add origin "branch"
 git remote -v # shows remotes
-git remote add origin https://github.com/colelamers/project.git
+git remote add origin https:#github.com/colelamers/project.git
 git push origin "branch" # master == the branch, can do pull as well
 git pull origin "branch"
 git pull origin "branch" --allow-unrelated-histories # a merge-pull, combines two repos
@@ -23,7 +23,7 @@ git merge "branch" # This merges the specified "branch" INTO the current branch 
                    # the changes you made in dev and merges them INTO master. 
                    # Simply put, the "merge" command pulls code changes INTO whatever branch 
                    # you are currently on.
-git remote set-url origin https://github.com/colelamers/vscode-settings.git # resets a remote
+git remote set-url origin https:#github.com/colelamers/vscode-settings.git # resets a remote
 git log --graph
 git reset --hard # reverts all local changes since last commit on the branch you are on
 git reset # undo all "git add"'s 
@@ -60,7 +60,7 @@ git reset (file)
 # make it a git repository
 --git init
 
-//checkout to a new branch containing your local changes
+#checkout to a new branch containing your local changes
 --git checkout -b my_awesome_branch 
 --git add --all
 
@@ -125,7 +125,7 @@ must add all files before you can perform a commit
 --git branch -d 'branch'
     deletes the branch
     
--- git remote add origin https://github.com/c0ldlimit/vimcolors.git
+-- git remote add origin https:#github.com/c0ldlimit/vimcolors.git
 -- git push -u origin master
     this performs a push to the origin and then branch "master"
     before deploying to github!, make a main branch and make that the origin.
