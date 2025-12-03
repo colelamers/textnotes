@@ -26,8 +26,14 @@ dd
 # Undo
 u
 
+# Redo
+C-r
+
 # Visual Mode (Highlight)
 v
+
+# Visual mode vertical highlight
+C-q
 
 # Change Mode (Insert at location or overwrite line)
 c
@@ -113,11 +119,11 @@ ctags -R
 ?type whatever you want after the ? char
 
 # Replace text
-:%s/cars\#vehicles\#g
+:%s/cars/vehicles/g
   * %s - perform substitution on entire file, just replaces first occurrance on each line
-  * /cars\# - replace word between /--/, but escape special char (/)
-  * /vehicles\# - replace previous word with, again escape
-  * g - replace globally of ALL occurances
+  * /cars - replace word between /--/, but escape special char (/)
+  * /vehicles - replace previous word with, again escape
+  * /g - replace globally of ALL occurances
 
 # Beatify adjust to tab spot of previous line (after text added)
 ==
