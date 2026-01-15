@@ -245,5 +245,75 @@ curs_set(1);
 * 1 is show cursorcurs_set(1);
 
 
+## Initialization
+Start ncurses mode                     initscr();
+Exit ncurses mode                      endwin();
+Disable line buffering                 cbreak();
+Enable line buffering                  nocbreak();
+Disable echo of typed characters       noecho();
+Enable echo of typed characters        echo();
+Enable function keys (arrows, F-keys)  keypad(stdscr, TRUE);
+Hide cursor                            curs_set(0);
+Show cursor                            curs_set(1);
+Enable color support                   start_color();
 
+## Window Management
+Create new window                       WINDOW* win = newwin(height, width, start_row, start_col); 
+Delete window                           delwin(win);
+Resize window                           wresize(win, new_height, new_width);
+Move window                             mvwin(win, new_start_row, new_start_col);
+Clear window                            wclear(win);
+Erase window (resets, keeps borders)    werase(win);
+Refresh window                          wrefresh(win);
+Draw box around window                  box(win, 0, 0);
+Draw horizontal line                    whline(win, ch, n);
+Draw vertical line                      wvline(win, ch, n);
+cursor inside window                    wmove(win, y, x);
+
+## Printing / Output
+Print fmt string at window coord         mvwprintw(win, y, x, "format", args...);
+Print on stdscr (default screen)         mvprintw(y, x, "format", args...);
+Print string without moving cursor       wprintw(win, "format", args...);
+Refresh screen after drawing             wrefresh(win); or refresh();
+
+## Input / Keyboard
+Get a character from window (blocking)   int ch = wgetch(win);
+Get character from default screen        int ch = getch();
+Enable non-blocking input                nodelay(win, TRUE);
+Check for special keys (arrows, F1-F12)  keypad(win, TRUE); and check KEY_UP, KEY_DOWN, KEY_LEFT, KEY_RIGHT, KEY_F(n)
+Read string from user                    wgetnstr(win, buffer, n);
+Enable mouse events                      mousemask(ALL_MOUSE_EVENTS, NULL);
+
+## Colors & Attributes
+Initialize color support                 start_color();
+Define color pair                        init_pair(pair_number, foreground, background);
+Apply color pair                         wattron(win, COLOR_PAIR(n));
+Remove color pair                        wattroff(win, COLOR_PAIR(n));
+Bold text                                wattron(win, A_BOLD);
+Underline text                           wattron(win, A_UNDERLINE);
+Reverse / standout                       wattron(win, A_REVERSE);
+Normal text                              wattroff(win, A_BOLD | A_UNDERLINE | A_REVERSE);
+
+## Cursor & Screen
+Move cursor                              wmove(win, y, x);
+Get cursor position                      getyx(win, y, x);
+Refresh default screen                   refresh();
+Clear default screen                     clear();
+Erase default screen                     erase();
+Get terminal size                        getmaxyx(stdscr, h, w);
+
+## Scrolling & Pads
+Enable scrolling in a window             scrollok(win, TRUE);
+Scroll up one line                       scroll(win);
+Create a pad (off-screen window)         WINDOW* pad = newpad(rows, cols);
+Display part of pad on screen            prefresh(pad, pminrow, pmincol, sminrow, smincol, smaxrow, smaxcol);
+Delete pad                               delwin(pad);
+
+## Signals / Terminal Changes
+Handle terminal resize (SIGWINCH)        signal(SIGWINCH, resize_handler);
+Get new terminal size after resize       getmaxyx(stdscr, h, w);
+Redraw window after resize               wresize(win, h, w); 
+                                         werase(win); 
+                                         box(win, 0, 0); 
+                                         wrefresh(win);
 

@@ -4,15 +4,22 @@ dotnet build
 # Builds release
 dotenet build --configuration Release
 
-# Prep for deployment
-dotnet publish -c Release -o ./publish
+# Hot reload (app auto-refresh)
+dotnet watch
+* Add this to .csproj file
+<HotReloadSupported>true</HotReloadSupported>
 
-# Runtime targeting for publish
-dotnet publish -c Release -r win-x64 --self-contained true
+# Prep for deployment
+dotnet build -c Release -o ./publish
 
 # Compile in a simplified binary including .NET so users do not need dotnet versions! Basically statically linked. 
 # This publishes under the /linux-x64 (or win-x86; etc), publish/ folder.
+# Publish should ONLY be used for deployments to servers, locations, targeting specific operating systems etc.
 dotnet publish -c Release -r linux-x64 --self-contained true /p:PublishSingleFile=true
+-r win-x64
+-r win-x86
+-r linux-x86
+etc.
 
 # Add References
 dotnet add reference ../CommonLibrary/CommonLibrary.csproj
@@ -35,6 +42,9 @@ dotnet format
 # nuget dependencies
 dotnet add package PACKAGE_NAME_HERE
 dotnet remove package PACKAGE_NAME_HERE
+
+# Package your sln/project into a nuget package
+dotnet pack -c Release
 
 # Resolve nuget dependencies
 dotnet restore
@@ -122,6 +132,9 @@ dotnet new class -n MyViewModel -o ViewModels
 # Build a new app
 dotnet new avalonia.app -n MyApp
 dotnet new avalonia.mvvm -n MyApp
+
+# Build a new folder object
+dotnet new avalonia.mvvm -o MyApp
 
 # === Create Views ===
 dotnet new avalonia.window -n MainWindow -o Views
