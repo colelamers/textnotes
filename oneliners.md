@@ -16,6 +16,7 @@ grep -irl --color "str_ext" ./src | xargs sed -i "s/str_ext/strex/g"
 
 # compare files
 vimdiff ~/Desktop/quotes.tsv ~/Desktop/quotes2.tsv
+
 # Sort tsv (\t) by col2, then by col1, (eq to: ORDER BY Col2, Col1) and view data in file
 vim <(sort -t$'\t' -k2,2 -k1,1 ~/Desktop/quotes.tsv)
 

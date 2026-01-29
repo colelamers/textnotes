@@ -1,18 +1,21 @@
 set list
-set listchars=space:·,tab:→\
+"set listchars=space:·
+set listchars=tab:→\
 set relativenumber
 set number
 set expandtab
 set tabstop=4
 set shiftwidth=4
-set softtabstop=4
+set softtabstop=0
 set autoindent
 set smartindent
 set splitright
-colorscheme industry
 set colorcolumn=80,100
 set statusline=2
-highlight Statement ctermfg=Red guifg=#ff00aa
+set wrap
+"set nowrap
+syntax on
+colorscheme industry
 "highlight ColorColumn ctermbg=25
 inoremap ;; <Esc>
 vnoremap ;; <Esc>
@@ -25,6 +28,14 @@ nnoremap fj <C-w>j
 nnoremap fk <C-w>k
 nnoremap fl <C-w>l
 nnoremap ` %
+" Only insert the closing char if it's not already there
+inoremap ( ()<Left>
+inoremap [ []<Left>
+inoremap { {}<Left>
+inoremap " ""<Left>
+inoremap ' ''<Left>
+" Only insert the closing char if it's not already there
+" Auto-skip closing parentheses/brackets/braces if already there
 set timeoutlen=200
 set wildignorecase
 set hlsearch     " Highlight all matches
@@ -33,14 +44,9 @@ set ignorecase   " Case-insensitive search
 "set smartcase    " Case-sensitive if search includes uppercase
 
 highlight Function ctermfg=Red
+highlight Statement ctermfg=Red guifg=#ff00aa
 " Override Identifier (used often for variables, sometimes namespaces)
 highlight Identifier ctermfg=Cyan guifg=#8be9fd
-
-"This makes axaml and xaml files behave like xml syntax highlighting.
-augroup xaml_files
-  autocmd!
-  autocmd BufRead,BufNewFile *.xaml,*.axaml setfiletype xml
-augroup END
 
 " Remap 'o' in netrw to open file in vertical split
 augroup netrw_vsplit

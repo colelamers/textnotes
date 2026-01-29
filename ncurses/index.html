@@ -1,0 +1,1190 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Linux version 5.6.0">
+  <title>NCURSES Programming HOWTO</title>
+  <meta name="GENERATOR" content=
+  "Modular DocBook HTML Stylesheet Version 1.79">
+  <link rel="NEXT" title="Hello World !!!" href="helloworld.html">
+</head>
+<body class="ARTICLE" bgcolor="#FFFFFF" text="#000000" link=
+"#0000FF" vlink="#840084" alink="#0000FF">
+  <div class="ARTICLE">
+    <div class="TITLEPAGE">
+      <h1 class="TITLE"><a name="AEN2" id="AEN2">NCURSES
+      Programming HOWTO</a></h1>
+
+      <div class="AUTHORGROUP">
+        <a name="AEN4" id="AEN4"></a>
+        <h3 class="AUTHOR"><a name="AEN5" id="AEN5">Pradeep
+        Padala</a></h3>
+
+        <div class="AFFILIATION">
+          <div class="ADDRESS">
+            <p class="ADDRESS"><code class="EMAIL">&lt;<a href=
+            "mailto:ppadala@gmail.com">ppadala@gmail.com</a>&gt;</code>
+            </p>
+          </div>
+        </div>
+
+        <h3 class="AUTHOR"><a name="AEN11" id="AEN11">Thomas E.
+        Dickey</a></h3>
+
+        <div class="AFFILIATION">
+          <div class="ADDRESS">
+            <p class="ADDRESS"><code class="EMAIL">&lt;<a href=
+            "mailto:dickey@invisible-island.net">dickey@invisible-island.net</a>&gt;</code>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p class="PUBDATE">v2.1, 2024-09-08<br></p>
+
+      <div class="REVHISTORY">
+        <table width="100%" border="0">
+          <tr>
+            <th align="left" valign="top" colspan="3"><b>Revision
+            History</b>
+            </th>
+          </tr>
+
+          <tr>
+            <td align="left">Revision 2.1</td>
+            <td align="left">2024-09-08</td>
+            <td align="left">Revised by: dickey</td>
+          </tr>
+
+          <tr>
+            <td align="left" colspan="3">Fixes for the sample
+            programs. Remove obsolete mailing addresses. Update
+            publication date.</td>
+          </tr>
+
+          <tr>
+            <td align="left">Revision 2.0</td>
+            <td align="left">2022-12-03</td>
+            <td align="left">Revised by: dickey</td>
+          </tr>
+
+          <tr>
+            <td align="left" colspan="3">Fixes for the sample
+            programs, Correct documentation errata.</td>
+          </tr>
+
+          <tr>
+            <td align="left">Revision 1.9</td>
+            <td align="left">2005-06-20</td>
+            <td align="left">Revised by: ppadala</td>
+          </tr>
+
+          <tr>
+            <td align="left" colspan="3">The license has been
+            changed to the MIT-style license used by NCURSES. Note
+            that the programs are also re-licensed under this.</td>
+          </tr>
+
+          <tr>
+            <td align="left">Revision 1.8</td>
+            <td align="left">2005-06-17</td>
+            <td align="left">Revised by: ppadala</td>
+          </tr>
+
+          <tr>
+            <td align="left" colspan="3">Lots of updates. Added
+            references and perl examples. Changes to examples. Many
+            grammatical and stylistic changes to the content.
+            Changes to NCURSES history.</td>
+          </tr>
+
+          <tr>
+            <td align="left">Revision 1.7.1</td>
+            <td align="left">2002-06-25</td>
+            <td align="left">Revised by: ppadala</td>
+          </tr>
+
+          <tr>
+            <td align="left" colspan="3">Added a README file for
+            building and instructions for building from
+            source.</td>
+          </tr>
+
+          <tr>
+            <td align="left">Revision 1.7</td>
+            <td align="left">2002-06-25</td>
+            <td align="left">Revised by: ppadala</td>
+          </tr>
+
+          <tr>
+            <td align="left" colspan="3">Added "Other formats"
+            section and made a lot of fancy changes to the
+            programs. Inlining of programs is gone.</td>
+          </tr>
+
+          <tr>
+            <td align="left">Revision 1.6.1</td>
+            <td align="left">2002-02-24</td>
+            <td align="left">Revised by: ppadala</td>
+          </tr>
+
+          <tr>
+            <td align="left" colspan="3">Removed the old Changelog
+            section, cleaned the makefiles</td>
+          </tr>
+
+          <tr>
+            <td align="left">Revision 1.6</td>
+            <td align="left">2002-02-16</td>
+            <td align="left">Revised by: ppadala</td>
+          </tr>
+
+          <tr>
+            <td align="left" colspan="3">Corrected a lot of
+            spelling mistakes, added ACS variables section</td>
+          </tr>
+
+          <tr>
+            <td align="left">Revision 1.5</td>
+            <td align="left">2002-01-05</td>
+            <td align="left">Revised by: ppadala</td>
+          </tr>
+
+          <tr>
+            <td align="left" colspan="3">Changed structure to
+            present proper TOC</td>
+          </tr>
+
+          <tr>
+            <td align="left">Revision 1.3.1</td>
+            <td align="left">2001-07-26</td>
+            <td align="left">Revised by: ppadala</td>
+          </tr>
+
+          <tr>
+            <td align="left" colspan="3">Corrected maintainers
+            paragraph, Corrected stable release number</td>
+          </tr>
+
+          <tr>
+            <td align="left">Revision 1.3</td>
+            <td align="left">2001-07-24</td>
+            <td align="left">Revised by: ppadala</td>
+          </tr>
+
+          <tr>
+            <td align="left" colspan="3">Added copyright notices to
+            main document (LDP license) and programs (GPL),
+            Corrected printw_example.</td>
+          </tr>
+
+          <tr>
+            <td align="left">Revision 1.2</td>
+            <td align="left">2001-06-05</td>
+            <td align="left">Revised by: ppadala</td>
+          </tr>
+
+          <tr>
+            <td align="left" colspan="3">Incorporated ravi's
+            changes. Mainly to introduction, menu, form, justforfun
+            sections</td>
+          </tr>
+
+          <tr>
+            <td align="left">Revision 1.1</td>
+            <td align="left">2001-05-22</td>
+            <td align="left">Revised by: ppadala</td>
+          </tr>
+
+          <tr>
+            <td align="left" colspan="3">Added "a word about
+            window" section, Added scanw_example.</td>
+          </tr>
+        </table>
+      </div>
+
+      <div>
+        <div class="ABSTRACT">
+          <a name="AEN85" id="AEN85"></a>
+          <p><span class="emphasis"><i class="EMPHASIS">This
+          document is intended to be an "All in One" guide for
+          programming with ncurses and its sister libraries. We
+          graduate from a simple "Hello World" program to more
+          complex form manipulation. No prior experience in ncurses
+          is assumed. Send comments to <a href=
+          "mailto:bug-ncurses@gnu.org" target="_top">this
+          address</a></i></span>
+          </p>
+        </div>
+      </div>
+
+      <hr>
+    </div>
+
+    <div class="TOC">
+      <dl>
+        <dt><b>Table of Contents</b>
+        </dt>
+
+        <dt>1. <a href="index.html#INTRO">Introduction</a></dt>
+
+        <dd>
+          <dl>
+            <dt>1.1. <a href="index.html#WHATIS">What is
+            NCURSES?</a></dt>
+
+            <dt>1.2. <a href="index.html#WHATCANWEDO">What we can
+            do with NCURSES</a></dt>
+
+            <dt>1.3. <a href="index.html#WHERETOGETIT">Where to get
+            it</a></dt>
+
+            <dt>1.4. <a href="index.html#PURPOSE">Purpose/Scope of
+            the document</a></dt>
+
+            <dt>1.5. <a href="index.html#ABOUTPROGRAMS">About the
+            Programs</a></dt>
+
+            <dt>1.6. <a href="index.html#OTHERFORMATS">Other
+            Formats of the document</a></dt>
+
+            <dd>
+              <dl>
+                <dt>1.6.1. <a href=
+                "index.html#LISTFORMATS">Alternative
+                formats</a></dt>
+
+                <dt>1.6.2. <a href=
+                "index.html#BUILDSOURCE">Building from
+                source</a></dt>
+              </dl>
+            </dd>
+
+            <dt>1.7. <a href="index.html#CREDITS">Credits</a></dt>
+
+            <dt>1.8. <a href="index.html#WISHLIST">Wish
+            List</a></dt>
+
+            <dt>1.9. <a href=
+            "index.html#COPYRIGHT">Copyright</a></dt>
+          </dl>
+        </dd>
+
+        <dt>2. <a href="helloworld.html">Hello World !!!</a></dt>
+
+        <dd>
+          <dl>
+            <dt>2.1. <a href=
+            "helloworld.html#COMPILECURSES">Compiling With the
+            NCURSES Library</a></dt>
+
+            <dt>2.2. <a href=
+            "helloworld.html#DISSECTION">Dissection</a></dt>
+
+            <dd>
+              <dl>
+                <dt>2.2.1. <a href=
+                "helloworld.html#ABOUT-INITSCR">About
+                initscr()</a></dt>
+
+                <dt>2.2.2. <a href=
+                "helloworld.html#MYST-REFRESH">The mysterious
+                refresh()</a></dt>
+
+                <dt>2.2.3. <a href=
+                "helloworld.html#ABOUT-ENDWIN">About
+                endwin()</a></dt>
+              </dl>
+            </dd>
+          </dl>
+        </dd>
+
+        <dt>3. <a href="gory.html">The Gory Details</a></dt>
+
+        <dt>4. <a href="init.html">Initialization</a></dt>
+
+        <dd>
+          <dl>
+            <dt>4.1. <a href="init.html#ABOUTINIT">Initialization
+            functions</a></dt>
+
+            <dt>4.2. <a href="init.html#RAWCBREAK">raw() and
+            cbreak()</a></dt>
+
+            <dt>4.3. <a href="init.html#ECHONOECHO">echo() and
+            noecho()</a></dt>
+
+            <dt>4.4. <a href="init.html#KEYPAD">keypad()</a></dt>
+
+            <dt>4.5. <a href=
+            "init.html#HALFDELAY">halfdelay()</a></dt>
+
+            <dt>4.6. <a href="init.html#MISCINIT">Miscellaneous
+            Initialization functions</a></dt>
+
+            <dt>4.7. <a href="init.html#INITEX">An Example</a></dt>
+          </dl>
+        </dd>
+
+        <dt>5. <a href="awordwindows.html">A Word about
+        Windows</a></dt>
+
+        <dt>6. <a href="printw.html">Output functions</a></dt>
+
+        <dd>
+          <dl>
+            <dt>6.1. <a href="printw.html#ADDCHCLASS">addch() class
+            of functions</a></dt>
+
+            <dt>6.2. <a href="printw.html#AEN324">mvaddch(),
+            waddch() and mvwaddch()</a></dt>
+
+            <dt>6.3. <a href="printw.html#PRINTWCLASS">printw()
+            class of functions</a></dt>
+
+            <dd>
+              <dl>
+                <dt>6.3.1. <a href=
+                "printw.html#PRINTWMVPRINTW">printw() and
+                mvprintw</a></dt>
+
+                <dt>6.3.2. <a href=
+                "printw.html#WPRINTWMVWPRINTW">wprintw() and
+                mvwprintw</a></dt>
+
+                <dt>6.3.3. <a href=
+                "printw.html#VWPRINTW">vw_printw()</a></dt>
+
+                <dt>6.3.4. <a href="printw.html#SIMPLEPRINTWEX">A
+                Simple printw example</a></dt>
+              </dl>
+            </dd>
+
+            <dt>6.4. <a href="printw.html#ADDSTRCLASS">addstr()
+            class of functions</a></dt>
+
+            <dt>6.5. <a href="printw.html#ACAUTION">A word of
+            caution</a></dt>
+          </dl>
+        </dd>
+
+        <dt>7. <a href="scanw.html">Input functions</a></dt>
+
+        <dd>
+          <dl>
+            <dt>7.1. <a href="scanw.html#GETCHCLASS">getch() class
+            of functions</a></dt>
+
+            <dt>7.2. <a href="scanw.html#SCANWCLASS">scanw() class
+            of functions</a></dt>
+
+            <dd>
+              <dl>
+                <dt>7.2.1. <a href=
+                "scanw.html#SCANWMVSCANW">scanw() and
+                mvscanw</a></dt>
+
+                <dt>7.2.2. <a href=
+                "scanw.html#WSCANWMVWSCANW">wscanw() and
+                mvwscanw()</a></dt>
+
+                <dt>7.2.3. <a href=
+                "scanw.html#VWSCANW">vw_scanw()</a></dt>
+              </dl>
+            </dd>
+
+            <dt>7.3. <a href="scanw.html#GETSTRCLASS">getstr()
+            class of functions</a></dt>
+
+            <dt>7.4. <a href="scanw.html#GETSTREX">Some
+            examples</a></dt>
+          </dl>
+        </dd>
+
+        <dt>8. <a href="attrib.html">Attributes</a></dt>
+
+        <dd>
+          <dl>
+            <dt>8.1. <a href="attrib.html#ATTRIBDETAILS">The
+            details</a></dt>
+
+            <dt>8.2. <a href="attrib.html#ATTRONVSATTRSET">attron()
+            vs attrset()</a></dt>
+
+            <dt>8.3. <a href=
+            "attrib.html#ATTRGET">attr_get()</a></dt>
+
+            <dt>8.4. <a href="attrib.html#ATTRFUNCS">attr_
+            functions</a></dt>
+
+            <dt>8.5. <a href="attrib.html#WATTRFUNCS">wattr
+            functions</a></dt>
+
+            <dt>8.6. <a href="attrib.html#CHGAT">chgat()
+            functions</a></dt>
+          </dl>
+        </dd>
+
+        <dt>9. <a href="windows.html">Windows</a></dt>
+
+        <dd>
+          <dl>
+            <dt>9.1. <a href="windows.html#WINDOWBASICS">The
+            basics</a></dt>
+
+            <dt>9.2. <a href="windows.html#LETBEWINDOW">Let there
+            be a Window !!!</a></dt>
+
+            <dt>9.3. <a href=
+            "windows.html#BORDEREXEXPL">Explanation</a></dt>
+
+            <dt>9.4. <a href="windows.html#OTHERSTUFF">The other
+            stuff in the example</a></dt>
+
+            <dt>9.5. <a href="windows.html#OTHERBORDERFUNCS">Other
+            Border functions</a></dt>
+          </dl>
+        </dd>
+
+        <dt>10. <a href="color.html">Colors</a></dt>
+
+        <dd>
+          <dl>
+            <dt>10.1. <a href="color.html#COLORBASICS">The
+            basics</a></dt>
+
+            <dt>10.2. <a href="color.html#CHANGECOLORDEFS">Changing
+            Color Definitions</a></dt>
+
+            <dt>10.3. <a href="color.html#COLORCONTENT">Color
+            Content</a></dt>
+          </dl>
+        </dd>
+
+        <dt>11. <a href="keys.html">Interfacing with the key
+        board</a></dt>
+
+        <dd>
+          <dl>
+            <dt>11.1. <a href="keys.html#KEYSBASICS">The
+            Basics</a></dt>
+
+            <dt>11.2. <a href="keys.html#SIMPLEKEYEX">A Simple Key
+            Usage example</a></dt>
+          </dl>
+        </dd>
+
+        <dt>12. <a href="mouse.html">Interfacing with the
+        mouse</a></dt>
+
+        <dd>
+          <dl>
+            <dt>12.1. <a href="mouse.html#MOUSEBASICS">The
+            Basics</a></dt>
+
+            <dt>12.2. <a href="mouse.html#GETTINGEVENTS">Getting
+            the events</a></dt>
+
+            <dt>12.3. <a href="mouse.html#MOUSETOGETHER">Putting it
+            all Together</a></dt>
+
+            <dt>12.4. <a href=
+            "mouse.html#MISCMOUSEFUNCS">Miscellaneous
+            Functions</a></dt>
+          </dl>
+        </dd>
+
+        <dt>13. <a href="screen.html">Screen Manipulation</a></dt>
+
+        <dd>
+          <dl>
+            <dt>13.1. <a href="screen.html#GETYX">getyx()
+            functions</a></dt>
+
+            <dt>13.2. <a href="screen.html#SCREENDUMP">Screen
+            Dumping</a></dt>
+
+            <dt>13.3. <a href="screen.html#WINDOWDUMP">Window
+            Dumping</a></dt>
+          </dl>
+        </dd>
+
+        <dt>14. <a href="misc.html">Miscellaneous features</a></dt>
+
+        <dd>
+          <dl>
+            <dt>14.1. <a href=
+            "misc.html#CURSSET">curs_set()</a></dt>
+
+            <dt>14.2. <a href="misc.html#TEMPLEAVE">Temporarily
+            Leaving Curses mode</a></dt>
+
+            <dt>14.3. <a href="misc.html#ACSVARS">ACS_
+            variables</a></dt>
+          </dl>
+        </dd>
+
+        <dt>15. <a href="otherlib.html">Other libraries</a></dt>
+
+        <dt>16. <a href="panels.html">Panel Library</a></dt>
+
+        <dd>
+          <dl>
+            <dt>16.1. <a href="panels.html#PANELBASICS">The
+            Basics</a></dt>
+
+            <dt>16.2. <a href="panels.html#COMPILEPANELS">Compiling
+            With the Panels Library</a></dt>
+
+            <dt>16.3. <a href="panels.html#PANELBROWSING">Panel
+            Window Browsing</a></dt>
+
+            <dt>16.4. <a href="panels.html#USERPTRUSING">Using User
+            Pointers</a></dt>
+
+            <dt>16.5. <a href="panels.html#PANELMOVERESIZE">Moving
+            and Resizing Panels</a></dt>
+
+            <dt>16.6. <a href="panels.html#PANELSHOWHIDE">Hiding
+            and Showing Panels</a></dt>
+
+            <dt>16.7. <a href=
+            "panels.html#PANELABOVE">panel_above() and
+            panel_below() Functions</a></dt>
+          </dl>
+        </dd>
+
+        <dt>17. <a href="menus.html">Menus Library</a></dt>
+
+        <dd>
+          <dl>
+            <dt>17.1. <a href="menus.html#MENUBASICS">The
+            Basics</a></dt>
+
+            <dt>17.2. <a href="menus.html#COMPILEMENUS">Compiling
+            With the Menu Library</a></dt>
+
+            <dt>17.3. <a href="menus.html#MENUDRIVER">Menu Driver:
+            The work horse of the menu system</a></dt>
+
+            <dt>17.4. <a href="menus.html#MENUWINDOWS">Menu
+            Windows</a></dt>
+
+            <dt>17.5. <a href="menus.html#SCROLLMENUS">Scrolling
+            Menus</a></dt>
+
+            <dt>17.6. <a href="menus.html#MULTICOLUMN">Multi
+            Columnar Menus</a></dt>
+
+            <dt>17.7. <a href="menus.html#MULTIVALUEMENUS">Multi
+            Valued Menus</a></dt>
+
+            <dt>17.8. <a href="menus.html#MENUOPT">Menu
+            Options</a></dt>
+
+            <dt>17.9. <a href="menus.html#MENUUSERPTR">The useful
+            User Pointer</a></dt>
+          </dl>
+        </dd>
+
+        <dt>18. <a href="forms.html">Forms Library</a></dt>
+
+        <dd>
+          <dl>
+            <dt>18.1. <a href="forms.html#FORMBASICS">The
+            Basics</a></dt>
+
+            <dt>18.2. <a href="forms.html#COMPILEFORMS">Compiling
+            With the Forms Library</a></dt>
+
+            <dt>18.3. <a href="forms.html#PLAYFIELDS">Playing with
+            Fields</a></dt>
+
+            <dd>
+              <dl>
+                <dt>18.3.1. <a href="forms.html#FETCHINFO">Fetching
+                Size and Location of Field</a></dt>
+
+                <dt>18.3.2. <a href="forms.html#MOVEFIELD">Moving
+                the field</a></dt>
+
+                <dt>18.3.3. <a href="forms.html#JUSTIFYFIELD">Field
+                Justification</a></dt>
+
+                <dt>18.3.4. <a href=
+                "forms.html#FIELDDISPATTRIB">Field Display
+                Attributes</a></dt>
+
+                <dt>18.3.5. <a href=
+                "forms.html#FIELDOPTIONBITS">Field Option
+                Bits</a></dt>
+
+                <dt>18.3.6. <a href="forms.html#FIELDSTATUS">Field
+                Status</a></dt>
+
+                <dt>18.3.7. <a href="forms.html#FIELDUSERPTR">Field
+                User Pointer</a></dt>
+
+                <dt>18.3.8. <a href=
+                "forms.html#VARIABLESIZEFIELDS">Variable-Sized
+                Fields</a></dt>
+              </dl>
+            </dd>
+
+            <dt>18.4. <a href="forms.html#FORMWINDOWS">Form
+            Windows</a></dt>
+
+            <dt>18.5. <a href="forms.html#FILEDVALIDATE">Field
+            Validation</a></dt>
+
+            <dt>18.6. <a href="forms.html#FORMDRIVER">Form Driver:
+            The work horse of the forms system</a></dt>
+
+            <dd>
+              <dl>
+                <dt>18.6.1. <a href="forms.html#PAGENAVREQ">Page
+                Navigation Requests</a></dt>
+
+                <dt>18.6.2. <a href=
+                "forms.html#INTERFIELDNAVREQ">Inter-Field
+                Navigation Requests</a></dt>
+
+                <dt>18.6.3. <a href=
+                "forms.html#INTRAFIELDNAVREQ">Intra-Field
+                Navigation Requests</a></dt>
+
+                <dt>18.6.4. <a href=
+                "forms.html#SCROLLREQ">Scrolling Requests</a></dt>
+
+                <dt>18.6.5. <a href="forms.html#EDITREQ">Editing
+                Requests</a></dt>
+
+                <dt>18.6.6. <a href="forms.html#ORDERREQ">Order
+                Requests</a></dt>
+
+                <dt>18.6.7. <a href=
+                "forms.html#APPLICCOMMANDS">Application
+                Commands</a></dt>
+              </dl>
+            </dd>
+          </dl>
+        </dd>
+
+        <dt>19. <a href="tools.html">Tools and Widget
+        Libraries</a></dt>
+
+        <dd>
+          <dl>
+            <dt>19.1. <a href="tools.html#CDK">CDK (Curses
+            Development Kit)</a></dt>
+
+            <dd>
+              <dl>
+                <dt>19.1.1. <a href="tools.html#WIDGETLIST">Widget
+                List</a></dt>
+
+                <dt>19.1.2. <a href="tools.html#CDKATTRACT">Some
+                Attractive Features</a></dt>
+
+                <dt>19.1.3. <a href=
+                "tools.html#CDKCONCLUSION">Conclusion</a></dt>
+              </dl>
+            </dd>
+
+            <dt>19.2. <a href="tools.html#DIALOG">The
+            dialog</a></dt>
+
+            <dt>19.3. <a href="tools.html#PERLCURSES">Perl Curses
+            Modules CURSES::FORM and CURSES::WIDGETS</a></dt>
+          </dl>
+        </dd>
+
+        <dt>20. <a href="justforfun.html">Just For Fun !!!</a></dt>
+
+        <dd>
+          <dl>
+            <dt>20.1. <a href="justforfun.html#GAMEOFLIFE">The Game
+            of Life</a></dt>
+
+            <dt>20.2. <a href="justforfun.html#MAGIC">Magic
+            Square</a></dt>
+
+            <dt>20.3. <a href="justforfun.html#HANOI">Towers of
+            Hanoi</a></dt>
+
+            <dt>20.4. <a href="justforfun.html#QUEENS">Queens
+            Puzzle</a></dt>
+
+            <dt>20.5. <a href=
+            "justforfun.html#SHUFFLE">Shuffle</a></dt>
+
+            <dt>20.6. <a href="justforfun.html#TT">Typing
+            Tutor</a></dt>
+          </dl>
+        </dd>
+
+        <dt>21. <a href="ref.html">References</a></dt>
+      </dl>
+    </div>
+
+    <div class="SECT1">
+      <h1 class="SECT1"><a name="INTRO" id="INTRO">1.
+      Introduction</a></h1>
+
+      <p>In the olden days of teletype terminals, terminals were
+      away from computers and were connected to them through serial
+      cables. The terminals could be configured by sending a series
+      of bytes. All the capabilities (such as moving the cursor to
+      a new location, erasing part of the screen, scrolling the
+      screen, changing modes, etc.) of terminals could be accessed
+      through these series of bytes. These control sequences are
+      usually called escape sequences, because they start with an
+      escape(0x1B) character. Even today, with proper emulation, we
+      can send escape sequences to the emulator and achieve the
+      same effect on a terminal window.</p>
+
+      <p>Suppose you wanted to print a line in color. Try typing
+      this on your console.</p>
+
+      <pre class="PROGRAMLISTING">echo "^[[0;31;40mIn Color"</pre>
+      <p>The first character is an escape character, which looks
+      like two characters ^ and [. To be able to print it, you have
+      to press CTRL+V and then the ESC key. All the others are
+      normal printable characters. You should be able to see the
+      string "In Color" in red. It stays that way and to revert
+      back to the original mode type this.</p>
+
+      <pre class="PROGRAMLISTING">echo "^[[0;37;40m"</pre>
+      <p>Now, what do these magic characters mean? Difficult to
+      comprehend? They might even be different for different
+      terminals. So the designers of UNIX invented a mechanism
+      named <tt class="LITERAL">termcap</tt>. It is a file that
+      lists all the capabilities of a particular terminal, along
+      with the escape sequences needed to achieve a particular
+      effect. In the later years, this was replaced by <tt class=
+      "LITERAL">terminfo</tt>. Without delving too much into
+      details, this mechanism allows application programs to query
+      the terminfo database and obtain the control characters to be
+      sent to a terminal or terminal emulator.</p>
+
+      <div class="SECT2">
+        <h2 class="SECT2"><a name="WHATIS" id="WHATIS">1.1. What is
+        NCURSES?</a></h2>
+
+        <p>You might be wondering, what the import of all this
+        technical gibberish is. In the above scenario, every
+        application program is supposed to query the terminfo and
+        perform the necessary stuff (sending control characters,
+        etc.). It soon became difficult to manage this complexity
+        and this gave birth to 'CURSES'. Curses is a pun on the
+        name "cursor optimization". The Curses library forms a
+        wrapper over working with raw terminal codes, and provides
+        highly flexible and efficient API (Application Programming
+        Interface). It provides functions to move the cursor,
+        create windows, produce colors, play with mouse, etc. The
+        application programs need not worry about the underlying
+        terminal capabilities.</p>
+
+        <p>So what is NCURSES? NCURSES is a clone of the original
+        System V Release 4.0 (SVr4) curses. It is a freely
+        distributable library, fully compatible with older version
+        of curses. In short, it is a library of functions that
+        manages an application's display on character-cell
+        terminals. In the remainder of the document, the terms
+        curses and ncurses are used interchangeably.</p>
+
+        <p>A detailed history of NCURSES can be found in the NEWS
+        file from the source distribution. The current package is
+        maintained by <a href="mailto:dickey@invisible-island.net"
+        target="_top">Thomas Dickey</a>. You can contact the
+        maintainers at <a href="mailto:bug-ncurses@gnu.org" target=
+        "_top">bug-ncurses@gnu.org</a>.</p>
+      </div>
+
+      <div class="SECT2">
+        <h2 class="SECT2"><a name="WHATCANWEDO" id=
+        "WHATCANWEDO">1.2. What we can do with NCURSES</a></h2>
+
+        <p>NCURSES not only creates a wrapper over terminal
+        capabilities, but also gives a robust framework to create
+        nice looking UI (User Interface)s in text mode. It provides
+        functions to create windows, etc. Its sister libraries
+        panel, menu and form provide an extension to the basic
+        curses library. These libraries usually come along with
+        curses. One can create applications that contain multiple
+        windows, menus, panels and forms. Windows can be managed
+        independently, can provide 'scrollability' and even can be
+        hidden.</p>
+
+        <p>Menus provide the user with an easy command selection
+        option. Forms allow the creation of easy-to-use data entry
+        and display windows. Panels extend the capabilities of
+        ncurses to deal with overlapping and stacked windows.</p>
+
+        <p>These are just some of the basic things we can do with
+        ncurses. As we move along, We will see all the capabilities
+        of these libraries.</p>
+      </div>
+
+      <div class="SECT2">
+        <h2 class="SECT2"><a name="WHERETOGETIT" id=
+        "WHERETOGETIT">1.3. Where to get it</a></h2>
+
+        <p>All right, now that you know what you can do with
+        ncurses, you must be rearing to get started. NCURSES is
+        usually shipped with your installation. In case you don't
+        have the library or want to compile it on your own, read
+        on.</p>
+
+        <p><span class="emphasis"><i class="EMPHASIS">Compiling the
+        package</i></span>
+        </p>
+
+        <p>NCURSES can be obtained from</p>
+
+        <ul>
+          <li>
+            <p>the home page at <a href=
+            "https://invisible-island.net/" target=
+            "_top">https://invisible-island.net</a>, as well as</p>
+          </li>
+
+          <li>
+            <p><a href="https://ftp.gnu.org/pub/gnu/ncurses/"
+            target="_top">https://ftp.gnu.org/pub/gnu/ncurses/</a>
+            or</p>
+          </li>
+
+          <li>
+            <p>any of the mirror sites mentioned in <a href=
+            "https://www.gnu.org/order/ftp.html" target=
+            "_top">https://www.gnu.org/order/ftp.html</a>.</p>
+          </li>
+        </ul>
+
+        <p>Read the README and <a href=
+        "https://invisible-island.net/ncurses/INSTALL.html" target=
+        "_top">INSTALL</a> files for details on to how to install
+        it. It usually involves the following operations.</p>
+
+        <pre class=
+        "PROGRAMLISTING">    tar zxvf ncurses&lt;version&gt;.tar.gz  # unzip and untar the archive
+    cd ncurses&lt;version&gt;               # cd to the directory
+    ./configure                       # configure the build according to your
+                                      # environment
+    make                              # make it
+    su root                           # become root
+    make install                      # install it</pre>
+      </div>
+
+      <div class="SECT2">
+        <h2 class="SECT2"><a name="PURPOSE" id="PURPOSE">1.4.
+        Purpose/Scope of the document</a></h2>
+
+        <p>This document is intended to be a "All in One" guide for
+        programming with ncurses and its sister libraries. We
+        graduate from a simple "Hello World" program to more
+        complex form manipulation. No prior experience in ncurses
+        is assumed. The writing is informal, but a lot of detail is
+        provided for each of the examples.</p>
+      </div>
+
+      <div class="SECT2">
+        <h2 class="SECT2"><a name="ABOUTPROGRAMS" id=
+        "ABOUTPROGRAMS">1.5. About the Programs</a></h2>
+
+        <p>All the programs in the document are available in
+        gzipped form <a href=
+        "https://invisible-island.net/ncurses/howto/ncurses_programs.tar.gz"
+        target="_top">here</a>. Ungzip and untar it. The directory
+        structure looks like this.</p>
+
+        <pre class="PROGRAMLISTING">ncurses
+   |
+   |----&gt; JustForFun     -- just for fun programs
+   |----&gt; basics         -- basic programs
+   |----&gt; demo           -- output files go into this directory after make
+   |          |
+   |          |----&gt; exe -- exe files of all example programs
+   |----&gt; forms          -- programs related to form library
+   |----&gt; menus          -- programs related to menus library
+   |----&gt; panels         -- programs related to panels library
+   |----&gt; perl           -- perl equivalents of the examples (contributed
+   |                            by Anuradha Ratnaweera)
+   |----&gt; Makefile       -- the top level Makefile
+   |----&gt; README         -- the top level README file. contains instructions
+   |----&gt; COPYING        -- copyright notice</pre>
+        <p>The individual directories contain the following
+        files.</p>
+
+        <pre class=
+        "PROGRAMLISTING">Description of files in each directory
+--------------------------------------
+JustForFun
+    |
+    |----&gt; hanoi.c   -- The Towers of Hanoi Solver
+    |----&gt; life.c    -- The Game of Life demo
+    |----&gt; magic.c   -- An Odd Order Magic Square builder
+    |----&gt; queens.c  -- The famous N-Queens Solver
+    |----&gt; shuffle.c -- A fun game, if you have time to kill
+    |----&gt; tt.c      -- A very trivial typing tutor
+
+  basics
+    |
+    |----&gt; acs_vars.c            -- ACS_ variables example
+    |----&gt; hello_world.c         -- Simple "Hello World" Program
+    |----&gt; init_func_example.c   -- Initialization functions example
+    |----&gt; key_code.c            -- Shows the scan code of the key pressed
+    |----&gt; mouse_menu.c          -- A menu accessible by mouse
+    |----&gt; other_border.c        -- Shows usage of other border functions apa
+    |                               -- rt from box()
+    |----&gt; printw_example.c      -- A very simple printw() example
+    |----&gt; scanw_example.c       -- A very simple getstr() example
+    |----&gt; simple_attr.c         -- A program that can print a c file with
+    |                               -- comments in attribute
+    |----&gt; simple_color.c        -- A simple example demonstrating colors
+    |----&gt; simple_key.c          -- A menu accessible with keyboard UP, DOWN
+    |                               -- arrows
+    |----&gt; temp_leave.c          -- Demonstrates temporarily leaving curses mode
+    |----&gt; win_border.c          -- Shows Creation of windows and borders
+    |----&gt; with_chgat.c          -- chgat() usage example
+
+  forms
+    |
+    |----&gt; form_attrib.c     -- Usage of field attributes
+    |----&gt; form_options.c    -- Usage of field options
+    |----&gt; form_simple.c     -- A simple form example
+    |----&gt; form_win.c        -- Demo of windows associated with forms
+
+  menus
+    |
+    |----&gt; menu_attrib.c     -- Usage of menu attributes
+    |----&gt; menu_item_data.c  -- Usage of item_name(), etc. functions
+    |----&gt; menu_multi_column.c    -- Creates multi columnar menus
+    |----&gt; menu_scroll.c     -- Demonstrates scrolling capability of menus
+    |----&gt; menu_simple.c     -- A simple menu accessed by arrow keys
+    |----&gt; menu_toggle.c     -- Creates multi valued menus and explains
+    |                           -- REQ_TOGGLE_ITEM
+    |----&gt; menu_userptr.c    -- Usage of user pointer
+    |----&gt; menu_win.c        -- Demo of windows associated with menus
+
+  panels
+    |
+    |----&gt; panel_browse.c    -- Panel browsing through tab. Usage of user
+    |                           -- pointer
+    |----&gt; panel_hide.c      -- Hiding and Un hiding of panels
+    |----&gt; panel_resize.c    -- Moving and resizing of panels
+    |----&gt; panel_simple.c    -- A simple panel example
+
+  perl
+    |----&gt; 01-10.pl          -- Perl equivalents of first ten example programs</pre>
+        <p>There is a top level Makefile included in the main
+        directory. It builds all the files and puts the
+        ready-to-use exes in demo/exe directory. You can also do
+        selective make by going into the corresponding directory.
+        Each directory contains a README file explaining the
+        purpose of each c file in the directory.</p>
+
+        <p>For every example, I have included path name for the
+        file relative to the examples directory.</p>
+
+        <p>All the programs are released under the same license
+        that is used by ncurses (MIT-style). This gives you the
+        ability to do pretty much anything other than claiming them
+        as yours. Feel free to use them in your programs as
+        appropriate.</p>
+      </div>
+
+      <div class="SECT2">
+        <h2 class="SECT2"><a name="OTHERFORMATS" id=
+        "OTHERFORMATS">1.6. Other Formats of the document</a></h2>
+
+        <p>This howto is also available in other formats. Here are
+        the links to other formats of this document.</p>
+
+        <div class="SECT3">
+          <h3 class="SECT3"><a name="LISTFORMATS" id=
+          "LISTFORMATS">1.6.1. Alternative formats</a></h3>
+
+          <ul>
+            <li>
+              <p><a href=
+              "https://invisible-island.net/ncurses/howto/NCURSES-Programming-HOWTO.pdf"
+              target="_top">Acrobat PDF Format</a></p>
+            </li>
+
+            <li>
+              <p><a href=
+              "https://invisible-island.net/ncurses/howto/NCURSES-Programming-HOWTO.ps"
+              target="_top">PostScript Format</a></p>
+            </li>
+
+            <li>
+              <p><a href=
+              "https://invisible-island.net/ncurses/howto/NCURSES-Programming-HOWTO-html.tar.gz"
+              target="_top">In Multiple HTML pages</a></p>
+            </li>
+
+            <li>
+              <p><a href=
+              "https://invisible-island.net/ncurses/howto/NCURSES-Programming-HOWTO.html"
+              target="_top">A single HTML file.</a></p>
+            </li>
+          </ul>
+        </div>
+
+        <div class="SECT3">
+          <h3 class="SECT3"><a name="BUILDSOURCE" id=
+          "BUILDSOURCE">1.6.2. Building from source</a></h3>
+
+          <p>The sources for this HOWTO can be retrieved from</p>
+
+          <div class="INFORMALEXAMPLE">
+            <a name="AEN164" id="AEN164"></a>
+
+            <pre class="PROGRAMLISTING"><a href=
+            "https://github.com/ThomasDickey/ncurses-howto-snapshots"
+            target=
+            "_top">https://github.com/ThomasDickey/ncurses-howto-snapshots</a></pre>
+          </div>
+
+          <p>These tools were used to format the HOWTO and build
+          the examples:</p>
+
+          <ul>
+            <li>
+              <p>docbook-utils (a Debian package)</p>
+            </li>
+
+            <li>
+              <p>gcc</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="SECT2">
+        <h2 class="SECT2"><a name="CREDITS" id="CREDITS">1.7.
+        Credits</a></h2>
+
+        <p>I thank <span class="emphasis"><i class=
+        "EMPHASIS">Sharath</i></span> and <span class=
+        "emphasis"><i class="EMPHASIS">Emre Akbas</i></span> for
+        helping me with few sections. The introduction was
+        initially written by Sharath. I rewrote it with few
+        excerpts taken from his initial work. Emre helped in
+        writing printw and scanw sections.</p>
+
+        <p>Perl equivalents of the example programs were
+        contributed by <span class="emphasis"><i class=
+        "EMPHASIS">Anuradha Ratnaweera</i></span>.</p>
+
+        <p>Then comes <span class="emphasis"><i class=
+        "EMPHASIS">Ravi Parimi</i></span>, my dearest friend, who
+        has been on this project before even one line was written.
+        He constantly bombarded me with suggestions and patiently
+        reviewed the whole text. He also checked each program on
+        Linux and Solaris.</p>
+      </div>
+
+      <div class="SECT2">
+        <h2 class="SECT2"><a name="WISHLIST" id="WISHLIST">1.8.
+        Wish List</a></h2>
+
+        <p>This is the wish list, in the order of priority. If you
+        have a wish or you want to work on completing the wish,
+        mail <a href="mailto:ppadala@gmail.com" target=
+        "_top">me</a>.</p>
+
+        <ul>
+          <li>
+            <p>Add examples to last parts of forms section.</p>
+          </li>
+
+          <li>
+            <p>Prepare a Demo showing all the programs and allow
+            the user to browse through description of each program.
+            Let the user compile and see the program in action. A
+            dialog based interface is preferred.</p>
+          </li>
+
+          <li>
+            <p>Add debug info. _tracef, _tracemouse stuff.</p>
+          </li>
+
+          <li>
+            <p>Accessing termcap, terminfo using functions provided
+            by ncurses package.</p>
+          </li>
+
+          <li>
+            <p>Working on two terminals simultaneously.</p>
+          </li>
+
+          <li>
+            <p>Add more stuff to miscellaneous section.</p>
+          </li>
+        </ul>
+      </div>
+
+      <div class="SECT2">
+        <h2 class="SECT2"><a name="COPYRIGHT" id="COPYRIGHT">1.9.
+        Copyright</a></h2>
+
+        <p>Copyright &copy; 2001 by Pradeep Padala.</p>
+
+        <p>Permission is hereby granted, free of charge, to any
+        person obtaining a copy of this software and associated
+        documentation files (the "Software"), to deal in the
+        Software without restriction, including without limitation
+        the rights to use, copy, modify, merge, publish,
+        distribute, distribute with modifications, sublicense,
+        and/or sell copies of the Software, and to permit persons
+        to whom the Software is furnished to do so, subject to the
+        following conditions:</p>
+
+        <p>The above copyright notice and this permission notice
+        shall be included in all copies or substantial portions of
+        the Software.</p>
+
+        <p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF
+        ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+        THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
+        PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE ABOVE
+        COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+        OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+        SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+
+        <p>Except as contained in this notice, the name(s) of the
+        above copyright holders shall not be used in advertising or
+        otherwise to promote the sale, use or other dealings in
+        this Software without prior written authorization.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="NAVFOOTER">
+    <hr align="left" width="100%">
+
+    <table summary="Footer navigation table" width="100%" border=
+    "0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td width="33%" align="left" valign="top">&nbsp;</td>
+        <td width="34%" align="center" valign="top">&nbsp;</td>
+        <td width="33%" align="right" valign="top"><a href=
+        "helloworld.html" accesskey="N">Next</a>
+        </td>
+      </tr>
+
+      <tr>
+        <td width="33%" align="left" valign="top">&nbsp;</td>
+        <td width="34%" align="center" valign="top">&nbsp;</td>
+        <td width="33%" align="right" valign="top">Hello World
+        !!!</td>
+      </tr>
+    </table>
+  </div>
+</body>
+</html>
