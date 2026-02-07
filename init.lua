@@ -131,11 +131,11 @@ keymap("n", "fl", "<C-w>l", opts)
 keymap("n", "`", "%", opts)
 
 -- Auto-close pairs in insert mode
-keymap("i", "(", "()<Left>", opts)
-keymap("i", "[", "[]<Left>", opts)
-keymap("i", "{", "{}<Left>", opts)
-keymap("i", '"', '""<Left>', opts)
-keymap("i", "'", "''<Left>", opts)
+-- keymap("i", "(", "()<Left>", opts)
+-- keymap("i", "[", "[]<Left>", opts)
+-- keymap("i", "{", "{}<Left>", opts)
+-- keymap("i", '"', '""<Left>', opts)
+-- keymap("i", "'", "''<Left>", opts)
 
 -- =========================
 -- Filetype / autocmds
@@ -195,6 +195,36 @@ vim.api.nvim_create_autocmd("FileType", {
     end
 })
 
+
+
+
+
+
+
+-- ============================================================================
+-- D LSP STUFF
+-- ============================================================================
+local lspconfig = require("lspconfig")
+local configs = require("lspconfig.configs")
+
+-- Define serve-d as a custom server if it doesn't exist
+if not configs["serve-d"] then
+  configs["serve-d"] = {
+    default_config = {
+      cmd = { "serve-d" },
+      filetypes = { "d" },
+      root_dir = lspconfig.util.root_pattern("dub.json", "dub.sdl", ".git"),
+      settings = {
+        d = {
+          enableDub = true,
+          suggestImports = true,
+        }
+      },
+    }
+  }
+end
+
+lspconfig["serve-d"].setup({})
 
 
 -- ============================================================================
@@ -270,6 +300,7 @@ if cmp_ok then
         },
         sources = {
             { name = "nvim_lsp" },
+            { name = "buffer" },
         }
     })
 
