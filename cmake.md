@@ -60,44 +60,64 @@ cmake -DCMAKE_BUILD_TYPE=Debug ../mathApp
 
 # Defines a variable
 set(NAME value1 value2 ...) Variables, file paths, strings, lists
+
 # Creates an executable target
 add_executable(targetName [source1 source2 ...]) 
+
 # Creates a library target
 add_library(targetName STATICSHAREDOBJECT [source1 source2 ...]) 
+
 # Adds sources to an existing target
 target_sources(targetName PRIVATEPUBLICINTERFACE file1.cpp ...) 
+
 # Adds include paths to a target
 target_include_directories(targetName PRIVATEPUBLICINTERFACE dir1 ...) 
+
 # Links libraries to a target
 target_link_libraries(targetName PRIVATEPUBLICINTERFACE lib1 ...) 
+
 # File operations (e.g., GLOB, COPY)
 file(GLOB varName pattern1 pattern2 ...) file(COPY ...) 
+
 # Adds global include paths (deprecated style)
 include_directories(dir1 dir2 ...) 
+
 # Adds directories for library linking
 link_directories(dir1 dir2 ...) 
+
 # Adds a subdirectory to the build
 add_subdirectory(dir) 
+
 # Declares the project 
 project(projectName [LANGUAGES C CXX]) 
+
 # Sets the minimum CMake version
 cmake_minimum_required(VERSION 3.10) 
+
 # Finds and loads external packages
 find_package(PackageName REQUIREDOPTIONAL)
+
 # Defines a user-toggleable option
 option(OPTION_NAME "Description" ONOFF)
+
 # Prints to the console
 message(STATUSWARNINGERROR "message") 
+
 # Installs files/targets
 install(TARGETSFILESDIRECTORY ...) 
+
 # Copies and modifies a file
 configure_file(input output [COPYONLY@ONLY])
+
 # Conditional logic
 if(condition) 
+
 # Loops over items
 foreach(item IN LISTS listVar) 
+
 # Defines a custom function
 function(name args...) 
+
 # Similar to function, less scoped
 macro(name args...) 
 ```
